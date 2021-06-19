@@ -26,31 +26,28 @@
 
  request/response -> loading -> scripting -> rendering -> layout -painting
 
- <-   construction                        -> <     operation             >
- request/response 
+ <             construction               > <         operation          >
  
+ request/response 
  브라우저가 HTML파일을 요청
 
  loaidng 
-
  데이터를 받아온다
 
  scripting
-
-
- DOM으로 변환
+ DOM TREE ,CSSOM 으로 변환
 
  rendering
-
  Render tree로 변환
 
  layout
-
  최종적으로 계산된 css 파일 크기계산
  x,y 크기와 높이가 계산
 
  painting
- 그림
+ paint 비트맵 단위로 이미지를 준비
+
+
 
 
 
@@ -95,7 +92,7 @@
  - componentDidCatch()
 
 ## lifecycle 그림
-https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+https://velog.io/@kyusung/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B5%90%EA%B3%BC%EC%84%9C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%99%80-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EC%9D%B4%EB%B2%A4%ED%8A%B8
 
 ## Event Handler
 
