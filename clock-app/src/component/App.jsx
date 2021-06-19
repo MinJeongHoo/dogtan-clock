@@ -14,11 +14,16 @@ class App extends React.Component {
     timeInfo: getCurrentTime(),
     text: 'jeonghoo'
   }
+  /*최초 한번 실행*/
   componentDidMount() {
     this.startTime();
   }
+  /*그다음은 무조건 이친구*/
   componentDidUpdate() {
     console.log('test');
+  }
+  componentWillUnmount() {
+    clearInterval(this.startTime());
   }
   startTime() {
     setInterval(() => this.setState({ timeInfo: getCurrentTime() }), 1000);
