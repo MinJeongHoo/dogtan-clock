@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getTextInfo } from '../../util/famousSayingData';
+import styles from './AppTop.module.css';
 
-function AppTop() {
+const AppTop = React.memo(function AppTop() {
+    const [text, setText] = useState('');
+    const [author, setAuthor] = useState('');
+    const [id, setId] = useState(0);
+    function changeText() {
+        const { text, author, nextId } = getTextInfo(id);
+        setText(text);
+        setAuthor(author);
+        setId(nextId);
+    }
+    useEffect(() => {
+        changeText();
+    }, []);
     return (
-        <article>
-            <p>나는 생각한다.고로 나는 존재한다.</p>
-            <p>데카르트</p>
+        <article className={styles.famousSaying}>
+            <p>{text}</p>
+            <p>{author}</p>
+            <button tyoe="button" onClick={changeText}>refresh</button>
         </article >
     )
-}
+})
 export default AppTop;

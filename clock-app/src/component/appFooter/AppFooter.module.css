@@ -1,0 +1,7 @@
+.footer{
+    background-color: indianred;
+    width: 100%;
+    min-width: 1000px;
+    height : 40%;
+    z-index: 1;
+}
