@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { getTextInfo } from '../../util/famousSayingData';
 import styles from './AppTop.module.css';
 
-const AppTop = React.memo(function AppTop() {
+function AppTop({ btnState }) {
+
+    let className = '';
+    btnState ? className = `${styles.famousSaying} ${styles.off}`
+        : className = `${styles.famousSaying}`
     const [text, setText] = useState('');
     const [author, setAuthor] = useState('');
     const [id, setId] = useState(0);
@@ -15,12 +19,12 @@ const AppTop = React.memo(function AppTop() {
     useEffect(() => {
         changeText();
     }, []);
+
     return (
-        <article className={styles.famousSaying}>
+        <article className={className}>
             <p>{text}</p>
             <p>{author}</p>
-            <button tyoe="button" onClick={changeText}>refresh</button>
         </article >
     )
-})
+}
 export default AppTop;

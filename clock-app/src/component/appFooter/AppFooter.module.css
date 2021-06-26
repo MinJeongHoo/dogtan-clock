@@ -1,7 +1,37 @@
+
 .footer{
-    background-color: indianred;
+    overflow: hidden;
+    background-color: darkgray;
     width: 100%;
-    min-width: 1000px;
-    height : 40%;
-    z-index: 1;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2,minmax(100px,auto));
+    transition: height 1s;
+}
+
+.partArea{
+    padding : 0 100px;
+    row-gap: 10px;
+}
+
+.on{
+    visibility: visible;
+    height: 52.5vh;
+}
+
+.off{
+    height: 0vh;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.topText{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.bottomText{
+    font-size: 4rem;
+    margin-bottom: 30px;
 }

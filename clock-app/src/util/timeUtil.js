@@ -1,7 +1,8 @@
+import dayjs from 'dayjs';
+
 export const getCurrentTime = () => {
-    const today = new Date();
-    const hours = today.getHours();
-    const minute = today.getMinutes();
-    const seconds = today.getSeconds();
-    return { hours, minute, seconds };
+    const date = dayjs(new Date());
+    const hour = date.hour();
+    const minute = date.minute();
+    return { hour, minute };
 }

@@ -1,3 +1,10 @@
 .famousSaying{
-    height: 600px;
+    overflow: hidden;
+    margin-bottom: calc(45vh - 10px);
+    transition: all 1s;
+}
+
+.off{
+    height: 0vh;
+    margin : 0;
 }
