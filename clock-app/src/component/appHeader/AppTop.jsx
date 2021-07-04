@@ -1,30 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { getTextInfo } from '../../util/famousSayingData';
-import styles from './AppTop.module.css';
-
+import React, { useEffect } from 'react';
+import { requestGet } from '../../modules/service/get';
+import { useDispatch, useSelector } from 'react-redux';
+import Test from './Test';
 function AppTop({ btnState }) {
+    const { data, loading } = useSelector(state => state.getReducer.famousSaying);
+    const dispatch = useDispatch();
 
-    let className = '';
-    btnState ? className = `${styles.famousSaying} ${styles.off}`
-        : className = `${styles.famousSaying}`
-    const [text, setText] = useState('');
-    const [author, setAuthor] = useState('');
-    const [id, setId] = useState(0);
-    function changeText() {
-        const { text, author, nextId } = getTextInfo(id);
-        setText(text);
-        setAuthor(author);
-        setId(nextId);
+    const getContent = () => {
+        dispatch(requestGet(`https://api.quotable.io/random`, 'famousSaying'));
     }
+    const changeContent = () => {
+        getContent();
+    }
+    // const [id, setId] = useState(0);
     useEffect(() => {
-        changeText();
-    }, []);
-
+        getContent();
+    }, [dispatch]);
     return (
-        <article className={className}>
-            <p>{text}</p>
-            <p>{author}</p>
-        </article >
+        <Test loading={loading} data={data} btnState={btnState} changeContent={changeContent} />
     )
 }
 export default AppTop;
